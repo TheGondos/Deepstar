@@ -22,7 +22,7 @@ public:
 
 	bool clbkDrawHUD(int mode, const HUDPAINTSPEC* hps, oapi::Sketchpad* skp);
 	void clbkPostStep(double simt, double simdt, double mjd);
-	int clbkConsumeBufferedKey(DWORD key, bool down, char* kstate);
+	int clbkConsumeBufferedKey(int key, bool down, char* kstate);
 
 	struct
 	{

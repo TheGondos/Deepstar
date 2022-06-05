@@ -177,7 +177,7 @@ void BaseStation::clbkPostStep(double simt, double simdt, double mjd)
 	}
 }
 
-int BaseStation::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
+int BaseStation::clbkConsumeBufferedKey(int key, bool down, char* kstate)
 {
 	if (!down || !KEYMOD_CONTROL(kstate)) return 0;
 

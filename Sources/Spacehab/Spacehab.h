@@ -40,7 +40,7 @@ const double  DH_ISP = 1e8;                    // fuel-specific impulse [m/s]
 const double  DH_MAXRCSTH = 3e2;		   	   // max RCS engine thrust [n]
 
 // Define impact convex hull
-static const DWORD tdVtxN = 12;
+static const int tdVtxN = 12;
 static TOUCHDOWNVTX tdVtx[tdVtxN] =
 {
 	{ _V(-0.013532, -1.24484, 1.92571),  2.5e7, 4.5e5, 3.0, 3},

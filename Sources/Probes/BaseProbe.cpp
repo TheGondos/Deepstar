@@ -82,12 +82,12 @@ void BaseProbe::clbkPostStep(double simt, double simdt, double mjd)
 
 		if (solarSystem.status == SystemStatus::CLOSING)
 		{
-			if (solarSystem.proc > 0.0) solarSystem.proc = max(0.0, solarSystem.proc - da);
+			if (solarSystem.proc > 0.0) solarSystem.proc = std::max(0.0, solarSystem.proc - da);
 			else solarSystem.status = SystemStatus::CLOSED;
 		}
 		else
 		{
-			if (solarSystem.proc < 1.0) solarSystem.proc = min(1.0, solarSystem.proc + da);
+			if (solarSystem.proc < 1.0) solarSystem.proc = std::min(1.0, solarSystem.proc + da);
 			else solarSystem.status = SystemStatus::OPEN;
 		}
 
@@ -102,7 +102,7 @@ void BaseProbe::clbkPostStep(double simt, double simdt, double mjd)
 	}
 }
 
-int BaseProbe::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
+int BaseProbe::clbkConsumeBufferedKey(int key, bool down, char* kstate)
 {
 	if (!down || !KEYMOD_CONTROL(kstate)) return 0;
 

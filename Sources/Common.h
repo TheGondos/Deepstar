@@ -1,5 +1,6 @@
 #pragma once
 #include <Orbitersdk.h>
+#include <cstring>
 
 struct System
 {

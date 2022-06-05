@@ -35,7 +35,7 @@ const double  DP_MAXMAINTH = 3e3;            // max main engien thrust [n]
 const double  DP_MAXRCSTH = 2e2;             // max RCS engine thrust [n]
 
 // Define impact convex hull
-static const DWORD tdVtxN = 12;
+static const int tdVtxN = 12;
 static TOUCHDOWNVTX tdVtx[tdVtxN] =
 {
 	{ _V(0, -0.344509, 1.37311),          4.9e7, 8.9e5, 3.0, 3},

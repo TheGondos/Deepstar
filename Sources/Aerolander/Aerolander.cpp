@@ -24,7 +24,7 @@ Aerolander::Aerolander(OBJHANDLE hVessel, int flightmodel) : VESSEL4(hVessel, fl
 	ucso->SetUnpackingRange(20);
 
 	sprintf(buffer, "UCSO version: %s", ucso->GetUCSOVersion());
-	cargoData.message = _strdup(buffer);
+	cargoData.message = strdup(buffer);
 
 	if (!vesselCount)
 	{
@@ -663,36 +663,36 @@ void Aerolander::clbkPostCreation()
 	mainFuel.full = GetFuelMass() == DA_FUELMASS;
 
 	xrSound = XRSound::CreateInstance(this);
-	xrSound->LoadWav(XRSound::MainEngines, "XRSound/Deepstar/Engine.wav", XRSound::BothViewFar);
-	xrSound->LoadWav(XRSound::HoverEngines, "XRSound/Deepstar/Engine.wav", XRSound::BothViewFar);
+	xrSound->LoadWav(XRSound::MainEngines, "XRSound/Deepstar/Engine.wav", XRSound::PlaybackType::BothViewFar);
+	xrSound->LoadWav(XRSound::HoverEngines, "XRSound/Deepstar/Engine.wav", XRSound::PlaybackType::BothViewFar);
 
-	xrSound->LoadWav(SoundID::HYDRAULICS, "XRSound/Default/Hydraulics1.wav", XRSound::BothViewClose);
-	xrSound->LoadWav(SoundID::CLICK, "XRSound/Default/SwitchOn1.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::RCS_NORMAL, "XRSound/Default/RCS Config Normal.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::RCS_DOCKING, "XRSound/Default/RCS Config Docking.wav", XRSound::InternalOnly);
+	xrSound->LoadWav(SoundID::HYDRAULICS, "XRSound/Default/Hydraulics1.wav", XRSound::PlaybackType::BothViewClose);
+	xrSound->LoadWav(SoundID::CLICK, "XRSound/Default/SwitchOn1.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::RCS_NORMAL, "XRSound/Default/RCS Config Normal.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::RCS_DOCKING, "XRSound/Default/RCS Config Docking.wav", XRSound::PlaybackType::InternalOnly);
 
-	xrSound->LoadWav(SoundID::GEAR_WHINE, "XRSound/Default/Gear Whine.wav", XRSound::BothViewClose);
-	xrSound->LoadWav(SoundID::GEAR_DOWN_LOCKED, "XRSound/Default/Gear Down and Locked.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::GEAR_DOWN, "XRSound/Default/Gear Down.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::GEAR_UP_LOCKED, "XRSound/Default/Gear Up and Locked.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::GEAR_UP, "XRSound/Default/Gear Up.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::HOVER_DOORS_CLOSED, "XRSound/Default/Hover doors are closed.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::HATCH_OPEN, "XRSound/Default/Hatch Open.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::HATCH_CLOSED, "XRSound/Default/Hatch Closed.wav", XRSound::InternalOnly);
+	xrSound->LoadWav(SoundID::GEAR_WHINE, "XRSound/Default/Gear Whine.wav", XRSound::PlaybackType::BothViewClose);
+	xrSound->LoadWav(SoundID::GEAR_DOWN_LOCKED, "XRSound/Default/Gear Down and Locked.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::GEAR_DOWN, "XRSound/Default/Gear Down.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::GEAR_UP_LOCKED, "XRSound/Default/Gear Up and Locked.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::GEAR_UP, "XRSound/Default/Gear Up.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::HOVER_DOORS_CLOSED, "XRSound/Default/Hover doors are closed.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::HATCH_OPEN, "XRSound/Default/Hatch Open.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::HATCH_CLOSED, "XRSound/Default/Hatch Closed.wav", XRSound::PlaybackType::InternalOnly);
 
-	xrSound->LoadWav(SoundID::MAIN_FULL, "XRSound/Default/Main Fuel Tanks Full.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::MAIN_LOW, "XRSound/Default/Warning Main Fuel Low.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::MAIN_DEPLETED, "XRSound/Default/Warning Main Fuel Depleted.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::WARN_GEAR_UP, "XRSound/Default/Warning Gear is Up.wav", XRSound::InternalOnly);
+	xrSound->LoadWav(SoundID::MAIN_FULL, "XRSound/Default/Main Fuel Tanks Full.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::MAIN_LOW, "XRSound/Default/Warning Main Fuel Low.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::MAIN_DEPLETED, "XRSound/Default/Warning Main Fuel Depleted.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::WARN_GEAR_UP, "XRSound/Default/Warning Gear is Up.wav", XRSound::PlaybackType::InternalOnly);
 
-	xrSound->LoadWav(SoundID::BAY_DOORS_CLOSED, "XRSound/Default/Bay Doors Are Closed.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::SLOT_EMPTY, "XRSound/Default/Slot is Empty.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::SLOT_OCCUPIED, "XRSound/Default/Slot Is Full.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::CARGO_RELEASED, "XRSound/Default/Cargo Deployed.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::CARGO_RELEASE_FAILED, "XRSound/Default/Cargo Deployment Failed.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::CARGO_GRAPPLED, "XRSound/Default/Cargo Latched In Bay.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::CARGO_GRAPPLE_NORANGE, "XRSound/Default/No Cargo in Grapple Range.wav", XRSound::InternalOnly);
-	xrSound->LoadWav(SoundID::CARGO_GRAPPLE_FAILED, "XRSound/Default/Auto-Grapple Failed.wav", XRSound::InternalOnly);
+	xrSound->LoadWav(SoundID::BAY_DOORS_CLOSED, "XRSound/Default/Bay Doors Are Closed.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::SLOT_EMPTY, "XRSound/Default/Slot is Empty.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::SLOT_OCCUPIED, "XRSound/Default/Slot Is Full.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::CARGO_RELEASED, "XRSound/Default/Cargo Deployed.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::CARGO_RELEASE_FAILED, "XRSound/Default/Cargo Deployment Failed.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::CARGO_GRAPPLED, "XRSound/Default/Cargo Latched In Bay.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::CARGO_GRAPPLE_NORANGE, "XRSound/Default/No Cargo in Grapple Range.wav", XRSound::PlaybackType::InternalOnly);
+	xrSound->LoadWav(SoundID::CARGO_GRAPPLE_FAILED, "XRSound/Default/Auto-Grapple Failed.wav", XRSound::PlaybackType::InternalOnly);
 }
 
 void Aerolander::clbkMFDMode(int mfd, int mode) { oapiVCTriggerRedrawArea(-1, VCArea::MFD_KEYS); }
@@ -1138,7 +1138,7 @@ void Aerolander::clbkPostStep(double simt, double simdt, double mjd)
 
 			if (system.status == SystemStatus::CLOSING)
 			{
-				if (system.proc > 0.0) system.proc = max(0.0, system.proc - da);
+				if (system.proc > 0.0) system.proc = std::max(0.0, system.proc - da);
 				else 
 				{
 					system.status = SystemStatus::CLOSED;
@@ -1151,7 +1151,7 @@ void Aerolander::clbkPostStep(double simt, double simdt, double mjd)
 			{
 				if (gearAnim && system.proc == 0) xrSound->PlayWav(SoundID::GEAR_DOWN);
 
-				if (system.proc < 1.0) system.proc = min(1.0, system.proc + da);
+				if (system.proc < 1.0) system.proc = std::min(1.0, system.proc + da);
 				else 
 				{
 					system.status = SystemStatus::OPEN;
@@ -1229,7 +1229,7 @@ void Aerolander::clbkPostStep(double simt, double simdt, double mjd)
 	if (cargoData.timer < 5) cargoData.timer += simdt;
 }
 
-int Aerolander::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
+int Aerolander::clbkConsumeBufferedKey(int key, bool down, char* kstate)
 {
 	if (!down) return 0;
 
@@ -1373,7 +1373,7 @@ int Aerolander::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
 				{
 					SetFuelMass(GetFuelMass() + drainedMass);
 					sprintf(buffer, "Success: %gkg was drained", drainedMass);
-					cargoData.message = _strdup(buffer);
+					cargoData.message = strdup(buffer);
 				}
 				else cargoData.message = "Error: Couldn't drain fuel.";
 
@@ -1531,8 +1531,8 @@ int Aerolander::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
 
 bool Aerolander::clbkVCMouseEvent(int id, int ev, VECTOR3& p)
 {
-	int ctrlSet = HIWORD(id);
-	int ctrlID = LOWORD(id);
+	int ctrlSet = (id>>16)&0xffff;
+	int ctrlID = (id)&0xffff;
 
 	switch (ctrlSet)
 	{

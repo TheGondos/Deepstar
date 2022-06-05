@@ -225,12 +225,12 @@ void EarthStation::clbkPostStep(double simt, double simdt, double mjd)
 
 		if (systems[0].status == SystemStatus::CLOSING)
 		{
-			if (systems[0].proc > 0.0) systems[0].proc = max(0.0, systems[0].proc - da);
+			if (systems[0].proc > 0.0) systems[0].proc = std::max(0.0, systems[0].proc - da);
 			else systems[0].status = SystemStatus::CLOSED;
 		}
 		else
 		{
-			if (systems[0].proc < 1.0) systems[0].proc = min(1.0, systems[0].proc + da);
+			if (systems[0].proc < 1.0) systems[0].proc = std::min(1.0, systems[0].proc + da);
 			else systems[0].status = SystemStatus::OPEN;
 		}
 
@@ -247,7 +247,7 @@ void EarthStation::clbkPostStep(double simt, double simdt, double mjd)
 	}
 }
 
-int EarthStation::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
+int EarthStation::clbkConsumeBufferedKey(int key, bool down, char* kstate)
 {
 	if (!down || !KEYMOD_CONTROL(kstate)) return 0;
 

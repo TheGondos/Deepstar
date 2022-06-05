@@ -37,7 +37,7 @@ public:
 	bool clbkDrawHUD(int mode, const HUDPAINTSPEC* hps, oapi::Sketchpad* skp);
 	void clbkPostStep(double simt, double simdt, double mjd);
 
-	int clbkConsumeBufferedKey(DWORD key, bool down, char* kstate);
+	int clbkConsumeBufferedKey(int key, bool down, char* kstate);
 	bool clbkVCMouseEvent(int id, int ev, VECTOR3& p);
 
 private:
@@ -65,7 +65,7 @@ private:
 	struct
 	{
 		DOCKHANDLE handle = nullptr;
-		DWORD idsChannel;
+		int idsChannel;
 	} dockPort;
 
 	UCSO::Vessel* ucso;
@@ -145,7 +145,7 @@ namespace SoundID
 }
 
 // Touchdown points
-static const DWORD tdVtxN = 13; 
+static const int tdVtxN = 13; 
 
 static TOUCHDOWNVTX tdVtxGearDown[tdVtxN] = 
 {

@@ -170,7 +170,7 @@ void BaseDepot::clbkPostStep(double simt, double simdt, double mjd)
 	}
 }
 
-int BaseDepot::clbkConsumeBufferedKey(DWORD key, bool down, char* kstate)
+int BaseDepot::clbkConsumeBufferedKey(int key, bool down, char* kstate)
 {
 	if (!down || !KEYMOD_CONTROL(kstate)) return 0;
 

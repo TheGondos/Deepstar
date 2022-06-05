@@ -37,7 +37,7 @@ public:
 	bool clbkDrawHUD(int mode, const HUDPAINTSPEC* hps, oapi::Sketchpad* skp);
 	void clbkPostStep(double simt, double simdt, double mjd);
 
-	int clbkConsumeBufferedKey(DWORD key, bool down, char* kstate);
+	int clbkConsumeBufferedKey(int key, bool down, char* kstate);
 	bool clbkVCMouseEvent(int id, int ev, VECTOR3& p);
 
 private:
@@ -107,7 +107,7 @@ namespace SoundID
 }
 
 // Touchdown points
-static const DWORD tdVtxN = 12;
+static const int tdVtxN = 12;
 static TOUCHDOWNVTX tdVtx[tdVtxN] =
 {
 	{ _V(-0.000035, -8.35928, -4.935),  4.8e5, 2.8e5, 3.0, 3},
